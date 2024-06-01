@@ -2,21 +2,20 @@
 
 void FolderTraversal::entrance(QDir & directory, QMap<QString, long long> *statistic)
 {
-    QString path = directory.absolutePath();
-
-    (*statistic)[path] = 0;
-
     foreach(QFileInfo file, directory.entryInfoList(QDir::AllEntries | QDir::NoDotAndDotDot)){
         if(file.isDir()){
             QDir folder(file.absoluteFilePath());
             entrance(folder, statistic);
             continue;
         }
-        (*statistic)[path] += ((long long) file.size());
+
+        QString extension = file.suffix();
+        if((*statistic).count(extension) != 0) (*statistic)[extension] += ((long long) file.size());
+        else (*statistic)[extension] = ((long long) file.size());
     }
 }
 
-QMap<QString, long long>* FolderTraversal::execute(QString &path)
+QMap<QString, long long>* TypeEntrance::execute(QString &path)
 {
     QDir dir(path);
     QMap<QString, long long> *map = new QMap<QString, long long>();
@@ -25,3 +24,4 @@ QMap<QString, long long>* FolderTraversal::execute(QString &path)
 
     return map;
 }
+

@@ -11,7 +11,7 @@ public:
     virtual ~IEntrance(){}
 };
 
-class FolderTraversal : public IEntrance{
+class TypeEntrance : public IEntrance{
     void entrance(QDir& directory, QMap<QString, long long> *statistic);
 public:
     QMap<QString, long long>* execute(QString &path) override;
