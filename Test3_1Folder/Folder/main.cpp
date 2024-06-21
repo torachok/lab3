@@ -7,11 +7,11 @@
 #include "context.h"
 
 void getStatistic(Context& context){
-    QVector<IEntrance*> vec = {new FolderEntrance(), new TypeEntrance()};
-    QString path = QDir::currentPath();
-    //QString path = "C:/Users/User/Documents/qtcreator_projects/lab3/TestFolder2";
+    QVector<ITraversal*> vec = {new FolderTraversal(), new TypeTraversal()};
+    //QString path = QDir::currentPath();
+    QString path = "C:/Users/User/Documents/qtcreator_projects/lab3/TestFolder2";
 
-    for(IEntrance* strat : vec){
+    for(ITraversal* strat : vec){
         context.setStrategy(strat);
 
         QMap<QString, long long> statistic = *(context.executeStrategy(path));
