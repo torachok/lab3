@@ -7,22 +7,22 @@
 #include "context.h"
 
 void getStatistic(Context& context){
-    QTextStream cout(stdout);
-
-    //QString path = QDir::currentPath();
-    QString path = "C:/Users/User/Documents/qtcreator_projects/lab3/TestFolder1";
-
     IEntrance* strat = new FolderEntrance();
-    //Entrance* strat = new TypeEntrance();
 
     context.setStrategy(strat);
 
-    QMap<QString, long long> stat = *(context.executeStrategy(path));
+    //QString path = QDir::currentPath();
+    QString path = "C:\\Users\\Viktoriia\\QtCreatorProjects\\lab3\\TestFolder2";
 
-    QMap<QString, double> map = *(countPrecent(stat, 1.0));
+    QMap<QString, long long> statistic = context.executeStrategy(path);
 
-    cout << "Key - size:" << Qt::endl;
-    foreach(QString x, stat.keys()) cout << x << " - " << stat[x] << Qt::endl;
+    QMap<QString, double> map = countPrecent(statistic, 1.0);
+    QTextStream cout(stdout);
+
+    foreach(const QString& key, map.keys())
+        cout << key << " " << map[key] << Qt::endl;
+
+    cout.flush();
 
     delete strat;
 }
