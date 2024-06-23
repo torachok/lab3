@@ -9,7 +9,7 @@ void FolderEntrance::entrance(QDir & directory, QMap<QString, long long> *statis
     foreach(QFileInfo file, directory.entryInfoList(QDir::AllEntries | QDir::NoDotAndDotDot)){
         if(file.isDir()){
             QDir folder(file.absoluteFilePath());
-            traversal(folder, statistic);
+            entrance(folder, statistic);
             continue;
         }
         (*statistic)[path] += ((long long) file.size());

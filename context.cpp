@@ -1,5 +1,8 @@
 #include "context.h"
 
+Context::Context()
+{}
+
 void Context::setStrategy(IEntrance *newStrategy)
 {
     strategy = newStrategy;
