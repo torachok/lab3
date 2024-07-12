@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets charts
 
 CONFIG += c++17
 
@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Model/StatisticModel.cpp \
+    View/ChartCreator.cpp \
     context.cpp \
     ientrance.cpp \
     main.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     MainWindow.h \
     Model/StatisticModel.h \
+    View/ChartCreator.h \
     context.h \
     ientrance.h
 

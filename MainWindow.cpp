@@ -12,9 +12,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     QVBoxLayout* vLayout = new QVBoxLayout(this);
 
+    ChartCreator chartCreator;
+    QString title = "Pie Chart";
+    QWidget* chart = chartCreator.createPieChart(title, statisticModel);
+    chart->setParent(this);
+
     QHBoxLayout* hLayout = new QHBoxLayout(this);
+
     hLayout->addWidget(navigationView);
-    hLayout->addWidget(statisticView);
+    hLayout->addWidget(chart);
 
     vLayout->addWidget(strategyBox);
     vLayout->addLayout(hLayout);
@@ -73,7 +79,8 @@ QMap<QString, double> MainWindow::calculateStatistic()
 
 void MainWindow::createStatistic()
 {
-    statisticView = new QTableView(this);
+    //statisticView = new QTableView(this);
+
     strategy = new FolderEntrance();
 
     context.setStrategy(strategy);
@@ -82,7 +89,7 @@ void MainWindow::createStatistic()
 
     statisticModel = new StatisticModel(data, this);
 
-    statisticView->setModel(statisticModel);
+    //statisticView->setModel(statisticModel);
 
     connect(
         this,
