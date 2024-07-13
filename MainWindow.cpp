@@ -13,8 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     QVBoxLayout* vLayout = new QVBoxLayout(this);
 
     ChartCreator chartCreator;
-    QString title = "Pie Chart";
-    QWidget* chart = chartCreator.createPieChart(title, statisticModel);
+    QString title = "Bar Chart";
+    QWidget* chart = chartCreator.createBarChart(title, statisticModel);
     chart->setParent(this);
 
     QHBoxLayout* hLayout = new QHBoxLayout(this);
