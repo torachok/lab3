@@ -12,18 +12,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     QVBoxLayout* vLayout = new QVBoxLayout(this);
 
-    ChartCreator chartCreator;
-    QString title = "Bar Chart";
-    QWidget* chart = chartCreator.createBarChart(title, statisticModel);
-    chart->setParent(this);
+    viewLayout = new QHBoxLayout(this);
 
-    QHBoxLayout* hLayout = new QHBoxLayout(this);
-
-    hLayout->addWidget(navigationView);
-    hLayout->addWidget(chart);
+    viewLayout->addWidget(navigationView);
+    viewLayout->addWidget(statisticView);
 
     vLayout->addWidget(strategyBox);
-    vLayout->addLayout(hLayout);
+    vLayout->addLayout(viewLayout);
 
     mainWindowWidget->setLayout(vLayout);
 
@@ -79,7 +74,7 @@ QMap<QString, double> MainWindow::calculateStatistic()
 
 void MainWindow::createStatistic()
 {
-    //statisticView = new QTableView(this);
+    statisticView = new QTableView(this);
 
     strategy = new FolderEntrance();
 
@@ -89,7 +84,7 @@ void MainWindow::createStatistic()
 
     statisticModel = new StatisticModel(data, this);
 
-    //statisticView->setModel(statisticModel);
+    statisticView->setModel(statisticModel);
 
     connect(
         this,

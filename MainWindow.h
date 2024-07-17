@@ -42,6 +42,8 @@ private:
 
     QComboBox* strategyBox;
 
+    QHBoxLayout* viewLayout;
+
 private slots:
     void onSelectionChange(const QItemSelection& selected, const QItemSelection& deselected);
     void onStrategyChange(int index);
