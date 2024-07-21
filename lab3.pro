@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     Model/StatisticModel.cpp \
     View/ChartCreator.cpp \
+    View/ViewAdapter.cpp \
     context.cpp \
     ientrance.cpp \
     main.cpp \
@@ -20,6 +21,7 @@ HEADERS += \
     MainWindow.h \
     Model/StatisticModel.h \
     View/ChartCreator.h \
+    View/ViewAdapter.h \
     context.h \
     ientrance.h
 
