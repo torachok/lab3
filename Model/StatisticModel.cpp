@@ -1,6 +1,6 @@
 #include "StatisticModel.h"
 
-StatisticModel::StatisticModel(QMap<QString, double> Data, QObject* parent)
+StatisticModel::StatisticModel(QMap<QString, double>& Data, QObject* parent)
     :QAbstractTableModel(parent)
 {
     foreach(const QString& key, Data.keys()){
