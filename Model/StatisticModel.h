@@ -6,7 +6,7 @@
 class StatisticModel:public QAbstractTableModel
 {
 public:
-    StatisticModel(QMap<QString, double> Data, QObject* parent);
+    StatisticModel(QMap<QString, double>& Data, QObject* parent);
 
     // QAbstractItemModel interface
 public:
